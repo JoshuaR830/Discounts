@@ -13,36 +13,38 @@ public class UnidaysDiscountChallenge {
     }
 
     // Works out the total item price, delivery and total overall price
-    public void calculateTotalPrice(){
+    public float calculateTotalPrice(String items){
+        float total = 0;
 
+        return total;
     }
 
     // Applies rules for A
-    private int calculateA(int num){
+    private float calculateA(int num){
 
         return 0;
     }
 
     // Applies rules for B
-    private int calculateB(int num){
+    private float calculateB(int num){
 
         return 0;
     }
 
     // Applies rules for C
-    private int calculateC(int num){
+    private float calculateC(int num){
 
         return 0;
     }
 
     // Applies rules for D
-    private int calculateD(int num){
+    private float calculateD(int num){
 
         return 0;
     }
 
     // Applies rules for E
-    private int calculateE(int num){
+    private float calculateE(int num){
 
         return 0;
     }
