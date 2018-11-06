@@ -5,21 +5,12 @@ import richardson.joshua.discount.code.UnidaysDiscountChallenge;
 
 import static org.junit.Assert.*;
 
-public class UnidaysDiscountChallengeComplexTest {
-    int total = 0;
+public class UnidaysDiscountChallengeComplexTest extends Testing{
     String input;
     double expDelivery;
     double expPrice;
     double expTotal;
 
-    UnidaysDiscountChallenge discount = new UnidaysDiscountChallenge();
-
-    public void calculate(String input, double total, double delivery, double price){
-        discount.calculateTotalPrice(input);
-        assertEquals(expDelivery,discount.getTotal(), 0);
-        assertEquals(expDelivery, discount.getDelivery(), 0);
-        assertEquals(expPrice, discount.getPrice(), 0);
-    }
 
     @Test
     public void calculateTotalPrice2Bs() {
