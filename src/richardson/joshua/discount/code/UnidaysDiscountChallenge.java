@@ -46,10 +46,14 @@ public class UnidaysDiscountChallenge {
     }
 
     // Works out the total item price, delivery and total overall price
-    public double calculateTotalPrice(String items){
+    public void calculateTotalPrice(String items){
         double total = 0;
+        double delivery = 0;
+        double price = 0;
 
-        return total;
+        setTotal(total);
+        setDelivery(delivery);
+        setPrice(price);
     }
 
 
