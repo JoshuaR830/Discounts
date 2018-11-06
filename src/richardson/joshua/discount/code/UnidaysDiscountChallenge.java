@@ -2,10 +2,43 @@ package richardson.joshua.discount.code;
 
 public class UnidaysDiscountChallenge {
 
+    private double delivery;
+    private double price;
+    private double total;
+
     public static void main(String[] args){
         UnidaysDiscountChallenge discount = new UnidaysDiscountChallenge();
 
     }
+
+
+
+
+    public double getDelivery() {
+        return delivery;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setDelivery(double delivery) {
+        this.delivery = delivery;
+    }
+
+
 
     // Takes the items that the user enters
     public void addToBasket(){
@@ -13,38 +46,40 @@ public class UnidaysDiscountChallenge {
     }
 
     // Works out the total item price, delivery and total overall price
-    public float calculateTotalPrice(String items){
-        float total = 0;
+    public double calculateTotalPrice(String items){
+        double total = 0;
 
         return total;
     }
 
+
+
     // Applies rules for A
-    private float calculateA(int num){
+    private double calculateA(int num){
 
         return 0;
     }
 
     // Applies rules for B
-    private float calculateB(int num){
+    private double calculateB(int num){
 
         return 0;
     }
 
     // Applies rules for C
-    private float calculateC(int num){
+    private double calculateC(int num){
 
         return 0;
     }
 
     // Applies rules for D
-    private float calculateD(int num){
+    private double calculateD(int num){
 
         return 0;
     }
 
     // Applies rules for E
-    private float calculateE(int num){
+    private double calculateE(int num){
 
         return 0;
     }
