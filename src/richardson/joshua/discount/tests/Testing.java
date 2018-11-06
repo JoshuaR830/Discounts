@@ -6,6 +6,11 @@ import static org.junit.Assert.assertEquals;
 
 public class Testing {
 
+    String input;
+    double expDelivery;
+    double expPrice;
+    double expTotal;
+
     UnidaysDiscountChallenge discount = new UnidaysDiscountChallenge();
 
     public void calculate(String input, double total, double delivery, double price){
