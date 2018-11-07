@@ -79,7 +79,6 @@ public class UnidaysDiscountChallenge {
         this.price += calculateD(basket.get('D'));
         this.price += calculateE(basket.get('E'));
 
-        System.out.println(price);
 
         // Calculates delivery charge based on total price
         if(this.price >= DELIVERY_THRESHOLD){
@@ -88,11 +87,7 @@ public class UnidaysDiscountChallenge {
             this.delivery = DELIVERY_COST;
         }
 
-        System.out.println(delivery);
-
         this.total = this.price + this.delivery;
-
-        System.out.println(total);
 
     }
 
@@ -104,7 +99,6 @@ public class UnidaysDiscountChallenge {
 
         subTotal = priceA*num;
 
-        System.out.println("£" + subTotal);
         return subTotal;
     }
 
@@ -118,7 +112,6 @@ public class UnidaysDiscountChallenge {
 
         subTotal += ((num-mod)/2) * 20.00;
 
-        System.out.println(subTotal);
         return subTotal;
     }
 
@@ -130,7 +123,6 @@ public class UnidaysDiscountChallenge {
 
         subTotal -= (2*(num/3));
 
-        System.out.println(subTotal);
         return subTotal;
     }
 
@@ -143,7 +135,6 @@ public class UnidaysDiscountChallenge {
             subTotal += priceD;
         }
 
-        System.out.println(subTotal);
         return subTotal;
     }
 
@@ -156,7 +147,6 @@ public class UnidaysDiscountChallenge {
         int mod = num%3;
         subTotal += priceE*mod;
 
-        System.out.println(subTotal);
         return subTotal;
     }
 
