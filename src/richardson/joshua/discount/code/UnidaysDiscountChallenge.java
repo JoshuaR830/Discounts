@@ -7,6 +7,21 @@ public class UnidaysDiscountChallenge {
     static final double DELIVERY_THRESHOLD = 50.00;
     static final double DELIVERY_COST = 7.00;
     static final int NUM_ITEMS = 5;
+
+    double priceA = 8.00;
+    double priceB = 12.00;
+    double priceC = 4.00;
+    double priceD = 7.00;
+    double priceE = 5.00;
+
+
+
+
+
+
+
+
+
     private double delivery = 0;
     private double price = 0;
     private double total = 0;
@@ -114,12 +129,11 @@ public class UnidaysDiscountChallenge {
     private double calculateE(int num){
         double subTotal;
         subTotal = 0;
+
+
+
         System.out.println(num);
         return subTotal;
     }
-
-
-
-
 
 }
