@@ -25,7 +25,7 @@ public class TestDs extends Testing{
     @Test
     public void calculateTotalPrice3Ds() {
         input = "DDD";
-        expDelivery = 5.00;
+        expDelivery = 7.00;
         expPrice = 14.00;
         expTotal = expDelivery + expPrice;
         calculate(input, expDelivery, expPrice, expTotal);

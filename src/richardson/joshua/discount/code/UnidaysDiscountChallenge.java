@@ -141,6 +141,12 @@ public class UnidaysDiscountChallenge {
     private double calculateD(int num){
         double subTotal;
         subTotal = 0;
+
+        subTotal = priceD * (num/2);
+        if(num % 2 != 0){
+            subTotal += priceD;
+        }
+
         System.out.println(subTotal);
         return subTotal;
     }
