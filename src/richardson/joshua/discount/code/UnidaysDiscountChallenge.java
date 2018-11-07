@@ -17,15 +17,10 @@ public class UnidaysDiscountChallenge {
 
 
 
-
-
-
-
-
     private double delivery = 0;
     private double price = 0;
     private double total = 0;
-    private HashMap<Character, Integer> basket;
+    public HashMap<Character, Integer> basket;
 
     public static void main(String[] args){
         UnidaysDiscountChallenge discount = new UnidaysDiscountChallenge();
@@ -43,6 +38,9 @@ public class UnidaysDiscountChallenge {
         discount.addToBasket();
         discount.calculateTotalPrice("AAA");
 
+    }
+    public HashMap<Character, Integer> getBasket() {
+        return basket;
     }
 
     public double getDelivery() {
@@ -98,7 +96,7 @@ public class UnidaysDiscountChallenge {
         double subTotal;
         subTotal = 0;
 
-        subTotal += (priceA*num);
+        subTotal += priceA*num;
 
         System.out.println("£" + subTotal);
         return subTotal;
@@ -108,7 +106,14 @@ public class UnidaysDiscountChallenge {
     private double calculateB(int num){
         double subTotal;
         subTotal = 0;
-        System.out.println(num);
+
+        int mod = num % 2;
+
+        subTotal += mod * priceC;
+
+        subTotal += (num-mod) * priceC;
+
+        System.out.println(subTotal);
         return subTotal;
     }
 
@@ -116,7 +121,7 @@ public class UnidaysDiscountChallenge {
     private double calculateC(int num){
         double subTotal;
         subTotal = 0;
-        System.out.println(num);
+        System.out.println(subTotal);
         return subTotal;
     }
 
@@ -124,7 +129,7 @@ public class UnidaysDiscountChallenge {
     private double calculateD(int num){
         double subTotal;
         subTotal = 0;
-        System.out.println(num);
+        System.out.println(subTotal);
         return subTotal;
     }
 
@@ -135,7 +140,7 @@ public class UnidaysDiscountChallenge {
 
 
 
-        System.out.println(num);
+        System.out.println(subTotal);
         return subTotal;
     }
 
