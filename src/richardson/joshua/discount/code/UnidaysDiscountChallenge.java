@@ -116,9 +116,9 @@ public class UnidaysDiscountChallenge {
 
         int mod = num % 2;
 
-        subTotal += mod * priceC;
+        subTotal += mod * priceB;
 
-        subTotal += (num-mod) * priceC;
+        subTotal += ((num-mod)/2) * 20.00;
 
         System.out.println(subTotal);
         return subTotal;
