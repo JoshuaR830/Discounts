@@ -44,7 +44,7 @@ public class UnidaysDiscountChallenge {
     }
 
     public double getDelivery() {
-        return total;
+        return delivery;
     }
 
     public double getTotal() {
@@ -79,6 +79,8 @@ public class UnidaysDiscountChallenge {
         this.price += calculateD(basket.get('D'));
         this.price += calculateE(basket.get('E'));
 
+        System.out.println(price);
+
         // Calculates delivery charge based on total price
         if(this.total >= DELIVERY_THRESHOLD){
             this.delivery = 0.00;
@@ -86,7 +88,12 @@ public class UnidaysDiscountChallenge {
             this.delivery = DELIVERY_COST;
         }
 
+        System.out.println(delivery);
+
         this.total = this.price + this.delivery;
+
+        System.out.println(total);
+
     }
 
 

@@ -20,7 +20,7 @@ public class Testing {
 
 
 
-    public void calculate(String input, double delivery, double price, double total){
+    public void calculate(String input, double expDelivery, double expPrice, double expTotal){
 
 
         // Store key value pairs
@@ -39,8 +39,8 @@ public class Testing {
         discount.addToBasket();
         discount.calculateTotalPrice(input);
 
-        assertEquals(total,discount.getTotal(), 0);
-        assertEquals(delivery, discount.getDelivery(), 0);
-        assertEquals(price, discount.getPrice(), 0);
+        assertEquals(expTotal,discount.getTotal(), 0);
+        assertEquals(expDelivery, discount.getDelivery(), 0);
+        assertEquals(expPrice, discount.getPrice(), 0);
     }
 }
