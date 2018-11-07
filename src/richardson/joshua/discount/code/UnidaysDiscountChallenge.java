@@ -42,17 +42,6 @@ public class UnidaysDiscountChallenge {
         return price;
     }
 
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setDelivery(double delivery) {
-        this.delivery = delivery;
-    }
 
 
 
