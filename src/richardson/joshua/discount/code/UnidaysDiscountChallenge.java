@@ -128,6 +128,11 @@ public class UnidaysDiscountChallenge {
     private double calculateC(int num){
         double subTotal;
         subTotal = 0;
+
+        subTotal = priceC * num;
+
+        subTotal -= (2*(num/3));
+
         System.out.println(subTotal);
         return subTotal;
     }
