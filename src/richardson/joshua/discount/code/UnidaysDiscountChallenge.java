@@ -2,20 +2,19 @@ package richardson.joshua.discount.code;
 
 public class UnidaysDiscountChallenge {
 
-    private double delivery;
-    private double price;
-    private double total;
+    static final double DELIVERY_THRESHOLD = 50.00;
+    static final double DELIVERY_COST = 7.00;
+    private double delivery = 0;
+    private double price = 0;
+    private double total = 0;
 
     public static void main(String[] args){
         UnidaysDiscountChallenge discount = new UnidaysDiscountChallenge();
 
     }
 
-
-
-
     public double getDelivery() {
-        return delivery;
+        return total;
     }
 
     public double getTotal() {
@@ -47,9 +46,24 @@ public class UnidaysDiscountChallenge {
 
     // Works out the total item price, delivery and total overall price
     public void calculateTotalPrice(String items){
-        double total = 0;
-        double delivery = 0;
-        double price = 0;
+//        this.delivery = 0;
+//        this.price = 0;
+        this.total = 0;
+
+
+
+        this.total += calculateA();
+        this.total += calculateB();
+        this.total += calculateC();
+        this.total += calculateD();
+        this.total += calculateE();
+
+        if(this.total >= DELIVERY_THRESHOLD){
+            this.delivery = 0.00;
+        }else{
+            this.delivery = DELIVERY_COST;
+        }
+
 
         setTotal(total);
         setDelivery(delivery);
