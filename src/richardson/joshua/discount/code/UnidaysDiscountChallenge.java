@@ -97,7 +97,10 @@ public class UnidaysDiscountChallenge {
     private double calculateA(int num){
         double subTotal;
         subTotal = 0;
-        System.out.println(num);
+
+        subTotal += (priceA*num);
+
+        System.out.println("£" + subTotal);
         return subTotal;
     }
 
