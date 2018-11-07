@@ -1,5 +1,7 @@
 package richardson.joshua.discount.code;
 
+import java.util.HashMap;
+
 public class UnidaysDiscountChallenge {
 
     static final double DELIVERY_THRESHOLD = 50.00;
@@ -41,6 +43,8 @@ public class UnidaysDiscountChallenge {
 
     // Takes the items that the user enters
     public void addToBasket(){
+        HashMap<String, Integer> basket = new HashMap<String, Integer>();
+
 
     }
 
@@ -52,11 +56,11 @@ public class UnidaysDiscountChallenge {
 
 
 
-        this.total += calculateA();
-        this.total += calculateB();
-        this.total += calculateC();
-        this.total += calculateD();
-        this.total += calculateE();
+        this.total += calculateA(0);
+        this.total += calculateB(0);
+        this.total += calculateC(0);
+        this.total += calculateD(0);
+        this.total += calculateE(0);
 
         if(this.total >= DELIVERY_THRESHOLD){
             this.delivery = 0.00;
@@ -74,31 +78,31 @@ public class UnidaysDiscountChallenge {
 
     // Applies rules for A
     private double calculateA(int num){
-
+        System.out.println(num);
         return 0;
     }
 
     // Applies rules for B
     private double calculateB(int num){
-
+        System.out.println(num);
         return 0;
     }
 
     // Applies rules for C
     private double calculateC(int num){
-
+        System.out.println(num);
         return 0;
     }
 
     // Applies rules for D
     private double calculateD(int num){
-
+        System.out.println(num);
         return 0;
     }
 
     // Applies rules for E
     private double calculateE(int num){
-
+        System.out.println(num);
         return 0;
     }
 
