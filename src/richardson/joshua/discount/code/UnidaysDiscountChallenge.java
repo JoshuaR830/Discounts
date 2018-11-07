@@ -82,7 +82,7 @@ public class UnidaysDiscountChallenge {
         System.out.println(price);
 
         // Calculates delivery charge based on total price
-        if(this.total >= DELIVERY_THRESHOLD){
+        if(this.price >= DELIVERY_THRESHOLD){
             this.delivery = 0.00;
         }else{
             this.delivery = DELIVERY_COST;
@@ -101,9 +101,8 @@ public class UnidaysDiscountChallenge {
     // Applies rules for A
     private double calculateA(int num){
         double subTotal;
-        subTotal = 0;
 
-        subTotal += priceA*num;
+        subTotal = priceA*num;
 
         System.out.println("£" + subTotal);
         return subTotal;
@@ -112,11 +111,10 @@ public class UnidaysDiscountChallenge {
     // Applies rules for B
     private double calculateB(int num){
         double subTotal;
-        subTotal = 0;
 
         int mod = num % 2;
 
-        subTotal += mod * priceB;
+        subTotal = mod * priceB;
 
         subTotal += ((num-mod)/2) * 20.00;
 
@@ -127,7 +125,6 @@ public class UnidaysDiscountChallenge {
     // Applies rules for C
     private double calculateC(int num){
         double subTotal;
-        subTotal = 0;
 
         subTotal = priceC * num;
 
@@ -140,7 +137,6 @@ public class UnidaysDiscountChallenge {
     // Applies rules for D
     private double calculateD(int num){
         double subTotal;
-        subTotal = 0;
 
         subTotal = priceD * (num/2);
         if(num % 2 != 0){
@@ -154,9 +150,11 @@ public class UnidaysDiscountChallenge {
     // Applies rules for E
     private double calculateE(int num){
         double subTotal;
-        subTotal = 0;
 
+        subTotal = priceE * (2 * (num/3));
 
+        int mod = num%3;
+        subTotal += priceE*mod;
 
         System.out.println(subTotal);
         return subTotal;
