@@ -1,5 +1,5 @@
 Running my program:
-I used Java 11 to create this project
+I used Java 8 to create this project
 I have also used JUnit 4 for testing
 
 All of the source code is available in this repository
