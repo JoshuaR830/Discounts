@@ -7,8 +7,8 @@ public class Rules {
     // price is the price that the items cost when not discounted
     // discount is the combined price you pay for the number of items defined
 
-    private static final double DELIVERY_THRESHOLD = 50.00;
-    private static final double DELIVERY_COST = 7.00;
+    private final double DELIVERY_THRESHOLD = 50.00;
+    private final double DELIVERY_COST = 7.00;
 
     private double numForDiscountA = 1;
     private double priceA = 8.00;
@@ -45,11 +45,11 @@ public class Rules {
         return pricingRules;
     }
 
-    public static double getDeliveryThreshold() {
+    public double getDeliveryThreshold() {
         return DELIVERY_THRESHOLD;
     }
 
-    public static double getDeliveryCost() {
+    public double getDeliveryCost() {
         return DELIVERY_COST;
     }
 }

@@ -1,0 +1,4 @@
+
+module unidays {
+	requires junit;
+}
