@@ -1,15 +1,14 @@
 package richardson.joshua.discount.tests;
 
+import richardson.joshua.discount.code.Program;
 import richardson.joshua.discount.code.Rules;
 import richardson.joshua.discount.code.UnidaysDiscountChallenge;
 
 import java.io.ByteArrayInputStream;
-import java.util.HashMap;
-import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
-public class Testing {
+public class Testing extends Program {
 
     String input;
     double expDelivery;
@@ -22,31 +21,18 @@ public class Testing {
 
     public void calculate(String input, double expDelivery, double expPrice, double expTotal){
 
+        discount.initialiseHashMap(discount);
 
-        // Store key value pairs
-
-        discount.basket = new HashMap<Character, Integer>();
-
-        char items[] = {'A', 'B', 'C', 'D', 'E'};
-
-        for (int i = 0; i < items.length; i++) {
-            discount.basket.put(items[i], 0);
-        }
-
+        // I need to be able to allow the program to simulate inputs for testing
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        Scanner itemInput = new Scanner(System.in);
-        char[] userInput = itemInput.next().toCharArray();
+        char[] userInput = discount.getInput();
 
         for(int i = 0; i<userInput.length; i++){
             discount.addToBasket(userInput[i]);
         }
 
-        double actualTotal = discount.calculateTotalPrice();
-
-        assertEquals(expTotal,actualTotal, 0);
-//        assertEquals(expDelivery, discount.getDelivery(), 0);
-//        assertEquals(expPrice, discount.getPrice(), 0);
+        assertEquals(expTotal,discount.calculateTotalPrice(), 0);
     }
 }
