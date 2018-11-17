@@ -8,9 +8,9 @@ public class UnidaysDiscountChallenge extends Program{
 
     // Constructor
     public UnidaysDiscountChallenge(Rules rules){
-        this.rules = rules.pricingRules;
-        this.deliveryPrice = rules.DELIVERY_COST;
-        this.deliveryNum = rules.DELIVERY_THRESHOLD;
+        this.rules = rules.getPricingRules();
+        this.deliveryPrice = rules.getDeliveryCost();
+        this.deliveryNum = rules.getDeliveryThreshold();
     }
 
 
@@ -23,8 +23,8 @@ public class UnidaysDiscountChallenge extends Program{
 
         char[] userInput = discount.getInput();
 
-        for(int i = 0; i<userInput.length; i++){
-            discount.addToBasket(userInput[i]);
+        for (char anUserInput : userInput) {
+            discount.addToBasket(anUserInput);
         }
 
         // Function to actually add to basket
@@ -72,7 +72,7 @@ public class UnidaysDiscountChallenge extends Program{
     private double calculatePrice(){
         double price = 0;
         for(int i = 0; i < items.length; i++){
-            price += calculate(basket.get(items[i]), (int) rules[i][0], rules[i][1], rules[i][2]);
+            price += calculateForGivenLetter(basket.get(items[i]), (int) rules[i][0], rules[i][1], rules[i][2]);
         }
 
         return price;
@@ -81,10 +81,10 @@ public class UnidaysDiscountChallenge extends Program{
 
 
     // Applies the rules appropriately based on inputs
-    private double calculate(int numItem, int numforDiscount, double price, double discount){
+    private double calculateForGivenLetter(int numItem, int numforDiscount, double price, double discount){
 
         double subTotal;
-        subTotal = discount * (numItem/numforDiscount);
+        subTotal = discount * Math.floor((double)numItem/(double)numforDiscount);
         int mod = numItem % numforDiscount;
         subTotal += price*mod;
 
