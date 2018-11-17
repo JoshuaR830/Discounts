@@ -14,6 +14,7 @@ public class UnidaysDiscountChallenge {
 
     public double[][] rules;
 
+    // Constructor
     public UnidaysDiscountChallenge(Rules rules){
         this.rules = rules.pricingRules;
         this.deliveryPrice = rules.DELIVERY_COST;
@@ -22,17 +23,13 @@ public class UnidaysDiscountChallenge {
 
     public static void main(String[] args){
         Rules rules = new Rules();
-        UnidaysDiscountChallengeWithExtraStuff discount = new UnidaysDiscountChallengeWithExtraStuff(rules);
+        UnidaysDiscountChallenge discount = new UnidaysDiscountChallenge(rules);
 
-        // Store key value pairs
-        discount.basket = new HashMap<Character, Integer>();
+        discount.initialiseHashMap(discount);
 
-        for (int i = 0; i < discount.items.length; i++) {
-            discount.basket.put(discount.items[i], 0);
-        }
+        char[] userInput = discount.getInput();
 
-        Scanner itemInput = new Scanner(System.in);
-        char[] userInput = itemInput.next().toCharArray();
+
 
         for(int i = 0; i<userInput.length; i++){
             discount.addToBasket(userInput[i]);
@@ -51,15 +48,37 @@ public class UnidaysDiscountChallenge {
         basket.replace(val, num+1);
     }
 
+
     // Works out the total item price, delivery and total overall price
     public double calculateTotalPrice(){
-        // This adds values to the totals appropriately
-        double price = 0;
-        for(int i = 0; i < items.length; i++){
-            price += calculate(basket.get(items[i]), (int) rules[i][0], rules[i][1], rules[i][2]);
-        }
 
-        // Calculates delivery charge based on total price
+        // Get the price for the items and for delivery
+        double price = calculatePrice();
+        double delivery = calculateDelivery(price);
+
+        // Calculate the total
+        double total = price + delivery;
+        return total;
+    }
+
+    private char[] getInput(){
+        Scanner itemInput = new Scanner(System.in);
+        char[] userInput = itemInput.next().toCharArray();
+        return userInput;
+    }
+
+    private void initialiseHashMap(UnidaysDiscountChallenge discount){
+        // Store key value pairs
+        discount.basket = new HashMap<Character, Integer>();
+
+        for (int i = 0; i < discount.items.length; i++) {
+            discount.basket.put(discount.items[i], 0);
+        }
+    }
+
+    // Calculates delivery charge based on total price
+    private double calculateDelivery(double price){
+
         double delivery;
         if(price >= this.deliveryNum){
             delivery = 0.00;
@@ -67,14 +86,18 @@ public class UnidaysDiscountChallenge {
             delivery = this.deliveryPrice;
         }
 
-        // Calculate the total
-        double total = price + delivery;
-
-        return total;
-
+        return delivery;
     }
 
+    // This adds values to the totals appropriately
+    private double calculatePrice(){
+        double price = 0;
+        for(int i = 0; i < items.length; i++){
+            price += calculate(basket.get(items[i]), (int) rules[i][0], rules[i][1], rules[i][2]);
+        }
 
+        return price;
+    }
 
     // Applies the rules appropriately based on inputs
     private double calculate(int numItem, int numforDiscount, double price, double discount){
