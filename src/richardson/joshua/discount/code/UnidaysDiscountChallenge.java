@@ -1,95 +1,93 @@
 package richardson.joshua.discount.code;
 
-public class UnidaysDiscountChallenge {
+public class UnidaysDiscountChallenge extends Program{
 
-    private double delivery;
-    private double price;
-    private double total;
+    public double deliveryPrice;
+    public double deliveryNum;
+
+
+    // Constructor
+    public UnidaysDiscountChallenge(Rules rules){
+        this.rules = rules.getPricingRules();
+        this.deliveryPrice = rules.getDeliveryCost();
+        this.deliveryNum = rules.getDeliveryThreshold();
+    }
+
+
 
     public static void main(String[] args){
-        UnidaysDiscountChallenge discount = new UnidaysDiscountChallenge();
+        Rules rules = new Rules();
+        UnidaysDiscountChallenge discount = new UnidaysDiscountChallenge(rules);
 
-    }
+        discount.initialiseHashMap(discount);
 
+        char[] userInput = discount.getInput();
 
+        for (char anUserInput : userInput) {
+            discount.addToBasket(anUserInput);
+        }
 
+        // Function to actually add to basket
+        double totalPrice = discount.calculateTotalPrice();
 
-    public double getDelivery() {
-        return delivery;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setDelivery(double delivery) {
-        this.delivery = delivery;
+        System.out.println("Total price: " + totalPrice);
     }
 
 
 
     // Takes the items that the user enters
-    public void addToBasket(){
-
+    public void addToBasket( char val){
+        int num = basket.get(val);
+        basket.replace(val, num+1);
     }
+
+
 
     // Works out the total item price, delivery and total overall price
-    public void calculateTotalPrice(String items){
-        double total = 0;
-        double delivery = 0;
+    public double calculateTotalPrice(){
+
+        // Get the price for the items and for delivery
+        double price = calculatePrice();
+        double delivery = calculateDelivery(price);
+
+        // Return the total
+        return price + delivery;
+    }
+
+
+
+    // Calculates delivery charge based on total price
+    private double calculateDelivery(double price){
+
+        if(price >= this.deliveryNum){
+            return 0.00;
+        }else{
+            return this.deliveryPrice;
+        }
+    }
+
+
+
+    // This adds values to the totals appropriately
+    private double calculatePrice(){
         double price = 0;
+        for(int i = 0; i < items.length; i++){
+            price += calculateForGivenLetter(basket.get(items[i]), (int) rules[i][0], rules[i][1], rules[i][2]);
+        }
 
-        setTotal(total);
-        setDelivery(delivery);
-        setPrice(price);
+        return price;
     }
 
 
 
-    // Applies rules for A
-    private double calculateA(int num){
+    // Applies the rules appropriately based on inputs
+    private double calculateForGivenLetter(int numItem, int numforDiscount, double price, double discount){
 
-        return 0;
+        double subTotal;
+        subTotal = discount * Math.floor((double)numItem/(double)numforDiscount);
+        int mod = numItem % numforDiscount;
+        subTotal += price*mod;
+
+        return subTotal;
     }
-
-    // Applies rules for B
-    private double calculateB(int num){
-
-        return 0;
-    }
-
-    // Applies rules for C
-    private double calculateC(int num){
-
-        return 0;
-    }
-
-    // Applies rules for D
-    private double calculateD(int num){
-
-        return 0;
-    }
-
-    // Applies rules for E
-    private double calculateE(int num){
-
-        return 0;
-    }
-
-
-
-
-
 }

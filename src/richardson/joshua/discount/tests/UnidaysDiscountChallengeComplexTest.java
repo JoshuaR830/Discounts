@@ -6,7 +6,7 @@ public class UnidaysDiscountChallengeComplexTest extends Testing{
 
     @Test
     public void calculateTotalPrice4B3Cs() {
-        input = "BBBBCCCC";
+        input = "BBBBCCC";
         expDelivery = 0.00;
         expPrice = 50.00;
         expTotal = expDelivery + expPrice;
