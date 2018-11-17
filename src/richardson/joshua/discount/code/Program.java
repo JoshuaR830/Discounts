@@ -14,7 +14,9 @@ public class Program {
 
     public char[] getInput(){
         Scanner itemInput = new Scanner(System.in);
-        return itemInput.next().toCharArray();
+        char[] charArray = itemInput.next().toCharArray();
+        itemInput.close();
+        return charArray;
     }
 
     public void initialiseHashMap(UnidaysDiscountChallenge discount){
