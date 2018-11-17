@@ -4,6 +4,7 @@ import richardson.joshua.discount.code.UnidaysDiscountChallenge;
 
 import java.io.ByteArrayInputStream;
 import java.util.HashMap;
+import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,7 +18,6 @@ public class Testing {
 
 
     UnidaysDiscountChallenge discount = new UnidaysDiscountChallenge();
-
 
 
     public void calculate(String input, double expDelivery, double expPrice, double expTotal){
@@ -36,8 +36,14 @@ public class Testing {
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        discount.addToBasket();
-        discount.calculateTotalPrice(input);
+        Scanner itemInput = new Scanner(System.in);
+        char[] userInput = itemInput.next().toCharArray();
+
+        for(int i = 0; i<userInput.length; i++){
+            discount.addToBasket(userInput[i]);
+        }
+
+        discount.calculateTotalPrice();
 
         assertEquals(expTotal,discount.getTotal(), 0);
         assertEquals(expDelivery, discount.getDelivery(), 0);

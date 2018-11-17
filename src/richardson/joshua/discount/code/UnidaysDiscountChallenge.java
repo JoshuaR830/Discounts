@@ -14,9 +14,6 @@ public class UnidaysDiscountChallenge {
     double priceD = 7.00;
     double priceE = 5.00;
 
-
-
-
     private double delivery = 0;
     private double price = 0;
     private double total = 0;
@@ -34,13 +31,20 @@ public class UnidaysDiscountChallenge {
             discount.basket.put(items[i], 0);
         }
 
-        // Function to actually add to basket
-        discount.addToBasket();
-        discount.calculateTotalPrice("AAA");
 
-    }
-    public HashMap<Character, Integer> getBasket() {
-        return basket;
+
+        Scanner itemInput = new Scanner(System.in);
+        char[] userInput = itemInput.next().toCharArray();
+
+        for(int i = 0; i<userInput.length; i++){
+            discount.addToBasket(userInput[i]);
+        }
+
+        // Function to actually add to basket
+        double totalPrice = discount.calculateTotalPrice();
+
+        System.out.println(totalPrice + "\n");
+
     }
 
     public double getDelivery() {
@@ -59,17 +63,15 @@ public class UnidaysDiscountChallenge {
 
 
     // Takes the items that the user enters
-    public void addToBasket(){
-        Scanner itemInput = new Scanner(System.in);
-        char[] userInput = itemInput.next().toCharArray();
-        for(int i = 0; i<userInput.length; i++){
-            int num = basket.get(userInput[i]);
-            basket.replace(userInput[i], num+1);
-        }
+    public void addToBasket( char val){
+
+        int num = basket.get(val);
+        basket.replace(val, num+1);
+
     }
 
     // Works out the total item price, delivery and total overall price
-    public void calculateTotalPrice(String items){
+    public double calculateTotalPrice(){
         this.price = 0;
 
         // This adds values to the totals appropriately
@@ -89,9 +91,9 @@ public class UnidaysDiscountChallenge {
 
         this.total = this.price + this.delivery;
 
+        return this.total;
+
     }
-
-
 
     // Applies rules for A
     private double calculateA(int num){
@@ -149,5 +151,4 @@ public class UnidaysDiscountChallenge {
 
         return subTotal;
     }
-
 }
