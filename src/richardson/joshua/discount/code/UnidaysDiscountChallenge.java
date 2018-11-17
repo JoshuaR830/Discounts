@@ -1,37 +1,35 @@
 package richardson.joshua.discount.code;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class UnidaysDiscountChallenge {
 
-    static final double DELIVERY_THRESHOLD = 50.00;
-    static final double DELIVERY_COST = 7.00;
-    static final int NUM_ITEMS = 5;
+    public double deliveryPrice;
+    public double deliveryNum;
 
-    double priceA = 8.00;
-    double priceB = 12.00;
-    double priceC = 4.00;
-    double priceD = 7.00;
-    double priceE = 5.00;
+    public char items[] = {'A', 'B', 'C', 'D', 'E'};
 
-    private double delivery = 0;
-    private double price = 0;
-    private double total = 0;
     public HashMap<Character, Integer> basket;
 
+    public double[][] rules;
+
+    public UnidaysDiscountChallenge(Rules rules){
+        this.rules = rules.pricingRules;
+        this.deliveryPrice = rules.DELIVERY_COST;
+        this.deliveryNum = rules.DELIVERY_THRESHOLD;
+    }
+
     public static void main(String[] args){
-        UnidaysDiscountChallenge discount = new UnidaysDiscountChallenge();
+        Rules rules = new Rules();
+        UnidaysDiscountChallengeWithExtraStuff discount = new UnidaysDiscountChallengeWithExtraStuff(rules);
 
         // Store key value pairs
         discount.basket = new HashMap<Character, Integer>();
 
-        char items[] = {'A', 'B', 'C', 'D', 'E'};
-
-        for (int i = 0; i < items.length; i++) {
-            discount.basket.put(items[i], 0);
+        for (int i = 0; i < discount.items.length; i++) {
+            discount.basket.put(discount.items[i], 0);
         }
-
-
 
         Scanner itemInput = new Scanner(System.in);
         char[] userInput = itemInput.next().toCharArray();
@@ -47,107 +45,44 @@ public class UnidaysDiscountChallenge {
 
     }
 
-    public double getDelivery() {
-        return delivery;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-
-
-
     // Takes the items that the user enters
     public void addToBasket( char val){
-
         int num = basket.get(val);
         basket.replace(val, num+1);
-
     }
 
     // Works out the total item price, delivery and total overall price
     public double calculateTotalPrice(){
-        this.price = 0;
-
         // This adds values to the totals appropriately
-        this.price += calculateA(basket.get('A'));
-        this.price += calculateB(basket.get('B'));
-        this.price += calculateC(basket.get('C'));
-        this.price += calculateD(basket.get('D'));
-        this.price += calculateE(basket.get('E'));
-
+        double price = 0;
+        for(int i = 0; i < items.length; i++){
+            price += calculate(basket.get(items[i]), (int) rules[i][0], rules[i][1], rules[i][2]);
+        }
 
         // Calculates delivery charge based on total price
-        if(this.price >= DELIVERY_THRESHOLD){
-            this.delivery = 0.00;
+        double delivery;
+        if(price >= this.deliveryNum){
+            delivery = 0.00;
         }else{
-            this.delivery = DELIVERY_COST;
+            delivery = this.deliveryPrice;
         }
 
-        this.total = this.price + this.delivery;
+        // Calculate the total
+        double total = price + delivery;
 
-        return this.total;
+        return total;
 
     }
 
-    // Applies rules for A
-    private double calculateA(int num){
+
+
+    // Applies the rules appropriately based on inputs
+    private double calculate(int numItem, int numforDiscount, double price, double discount){
+
         double subTotal;
-
-        subTotal = priceA*num;
-
-        return subTotal;
-    }
-
-    // Applies rules for B
-    private double calculateB(int num){
-        double subTotal;
-
-        int mod = num % 2;
-
-        subTotal = mod * priceB;
-
-        subTotal += ((num-mod)/2) * 20.00;
-
-        return subTotal;
-    }
-
-    // Applies rules for C
-    private double calculateC(int num){
-        double subTotal;
-
-        subTotal = priceC * num;
-
-        subTotal -= (2*(num/3));
-
-        return subTotal;
-    }
-
-    // Applies rules for D
-    private double calculateD(int num){
-        double subTotal;
-
-        subTotal = priceD * (num/2);
-        if(num % 2 != 0){
-            subTotal += priceD;
-        }
-
-        return subTotal;
-    }
-
-    // Applies rules for E
-    private double calculateE(int num){
-        double subTotal;
-
-        subTotal = priceE * (2 * (num/3));
-
-        int mod = num%3;
-        subTotal += priceE*mod;
+        subTotal = discount * (numItem/numforDiscount);
+        int mod = numItem % numforDiscount;
+        subTotal += price*mod;
 
         return subTotal;
     }
