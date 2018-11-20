@@ -6,12 +6,12 @@ The source code for the program is in: src/richardson/joshua/dicount/code
 The source code for the testing is in: src/richardson.joshua/dicount/code
 the JavaDocs can be found in src/documentation 
 
-I made this in IntelliJ and there was a nice issue where it would not run the JUnit
-So the fun fix if you face a similar issue is to go to project structure
-
+Issue you might face in IntelliJ
+I made this in IntelliJ and there was a nice little issue where it would not run the JUnit
+So the fun fix if you face a similar issue is to go to project structure then in modules select dependencies and change the JUnit scope to be compile.
 File -> Project Structure -> Modules -> Dependencies -> Then next to JUnit4 under scope change it to compile then apply
 
-
+Eclipse should be easier - just needs JUnit and Java 8 (1.8.0_191)
 
 My approach to the problem
 - I started off creating empty methods with no code
