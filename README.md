@@ -1,8 +1,15 @@
 Running my program:
-I used Java 8 to create this project
-I have also used JUnit 4 for testing
+Requires Java 8 (1.8.0_191)
+Requires JUnit 4 for running the tests
 
-All of the source code is available in this repository
+The source code for the program is in: src/richardson/joshua/dicount/code
+The source code for the testing is in: src/richardson.joshua/dicount/code
+the JavaDocs can be found in src/documentation 
+
+I made this in IntelliJ and there was a nice issue where it would not run the JUnit
+So the fun fix if you face a similar issue is to go to project structure
+
+File -> Project Structure -> Modules -> Dependencies -> Then next to JUnit4 under scope change it to compile then apply
 
 
 
@@ -17,3 +24,4 @@ My approach to the problem
 - I realised that I could simplify the program by having just one method to calculate A, B, C, D & E so refactored the program
 - I then realised that I could split the main routine into methods too
 - On splitting up main I realised that test also repeated some of this so I created a new class that the test class and discount class could both extend to minimise duplication
+- I added JavaDocs which should make the code more understandable
