@@ -1,11 +1,16 @@
 package richardson.joshua.discount.code;
 
-public class Rules {
+/**
+ * This class is used to create the rules for the discounts.
+ * This means that the values could be changed if desired
+ * numForDiscount represents the number of items you have to buy to get a discount
+ * price is the price that the items cost when not discounted
+ * discount is the combined price you pay for the number of items defined
+ *
+ * @author Joshua Richardson
+ */
 
-    // You can change the rules
-    // numForDiscount represents the number of items you have to buy to get a discount
-    // price is the price that the items cost when not discounted
-    // discount is the combined price you pay for the number of items defined
+public class Rules {
 
     private final double DELIVERY_THRESHOLD = 50.00;
     private final double DELIVERY_COST = 7.00;
@@ -41,14 +46,26 @@ public class Rules {
     };
 
 
+    /**
+     * Getter
+     * @return pricingRules so that it can be used outside of this class
+     */
     public double[][] getPricingRules() {
         return pricingRules;
     }
 
+    /**
+     * Getter
+     * @return DELIVERY_THRESHOLD so that it can be used outside of this class
+     */
     public double getDeliveryThreshold() {
         return DELIVERY_THRESHOLD;
     }
 
+    /**
+     * Getter
+     * @return DELIVERY_COST so that it can be used outside of this class
+     */
     public double getDeliveryCost() {
         return DELIVERY_COST;
     }
