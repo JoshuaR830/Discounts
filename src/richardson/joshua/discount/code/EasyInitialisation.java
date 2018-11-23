@@ -21,6 +21,7 @@ public class EasyInitialisation {
      * @return an array of characters that the user enters as a string
      */
     public char[] getInput(){
+    	System.out.print("Enter all of the items in your basket\n>");
         Scanner itemInput = new Scanner(System.in);
         char[] charArray = itemInput.next().toCharArray();
         itemInput.close();
