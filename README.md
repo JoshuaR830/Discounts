@@ -13,6 +13,10 @@ File -> Project Structure -> Modules -> Dependencies -> Then next to JUnit4 unde
 
 Eclipse should be easier - just needs JUnit and Java 8 (1.8.0_191)
 
+To run the program (main) go to UnidaysDiscountChallenge.java and click run
+You will then be able to enter the items in your basket
+Press enter and the total price will be calculated
+
 My approach to the problem
 - I started off creating empty methods with no code
 - I then created JUnit test cases that would ensure that my code output the correct things
