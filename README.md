@@ -1,21 +1,22 @@
 Running my program:
-Requires Java 8 (1.8.0_191)
-Requires JUnit 4 for running the tests
+- Requires Java 8 (1.8.0_191)
+- Requires JUnit 4 for running the tests
+- To run the program (main) go to UnidaysDiscountChallenge.java and click run
+- You will then be able to enter the items in your basket
+- Press enter and the total price will be calculated
 
-The source code for the program is in: src/richardson/joshua/dicount/code
-The source code for the testing is in: src/richardson.joshua/dicount/code
-the JavaDocs can be found in src/documentation 
+- The source code for the program is in: src/richardson/joshua/dicount/code
+- The source code for the testing is in: src/richardson.joshua/dicount/code
+- The JavaDocs can be found in src/documentation 
 
 Issue you might face in IntelliJ
-I made this in IntelliJ and there was a nice little issue where it would not run the JUnit
+- I made this in IntelliJ and there was a nice little issue where it would not run the JUnit
 So the fun fix if you face a similar issue is to go to project structure then in modules select dependencies and change the JUnit scope to be compile.
-File -> Project Structure -> Modules -> Dependencies -> Then next to JUnit4 under scope change it to compile then apply
+- File -> Project Structure -> Modules -> Dependencies -> Then next to JUnit4 under scope change it to compile then apply
 
-Eclipse should be easier - just needs JUnit and Java 8 (1.8.0_191)
+Eclipse might be easier - just needs JUnit and Java 8 (1.8.0_191)
 
-To run the program (main) go to UnidaysDiscountChallenge.java and click run
-You will then be able to enter the items in your basket
-Press enter and the total price will be calculated
+
 
 My approach to the problem
 - I started off creating empty methods with no code
