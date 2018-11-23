@@ -1,13 +1,12 @@
 Running my program:
 - Requires Java 8 (1.8.0_191)
 - Requires JUnit 4 for running the tests
-- To run the program (main) go to UnidaysDiscountChallenge.java and click run
-- You will then be able to enter the items in your basket
-- Press enter and the total price will be calculated
-
 - The source code for the program is in: src/richardson/joshua/dicount/code
 - The source code for the testing is in: src/richardson.joshua/dicount/code
 - The JavaDocs can be found in src/documentation 
+- To run the program (main) go to UnidaysDiscountChallenge.java and click run
+- You will then be able to enter the items in your basket
+- Press enter and the total price will be calculated
 
 Issue you might face in IntelliJ
 - I made this in IntelliJ and there was a nice little issue where it would not run the JUnit
