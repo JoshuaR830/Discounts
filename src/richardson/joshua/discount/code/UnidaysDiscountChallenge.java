@@ -37,7 +37,7 @@ public class UnidaysDiscountChallenge extends EasyInitialisation implements Calc
         char[] userInput = discount.getInput();
 
         for (char anUserInput : userInput) {
-            discount.addToBasket(anUserInput);
+            discount.addToBasket(Character.toUpperCase(anUserInput));
         }
 
         // Function to actually add to basket
